@@ -319,18 +319,20 @@ const (
 	CONTROLLER_BUTTON_MAX           = C.SDL_CONTROLLER_BUTTON_MAX
 )
 
+//go:generate stringer -type=GameControllerType
+
 // The gamecontroller structure used to identify an SDL game controller
 type GameControllerType C.SDL_GameControllerType
 
 const (
 	CONTROLLER_TYPE_UNKNOWN             GameControllerType = C.SDL_CONTROLLER_TYPE_UNKNOWN
-	CONTROLLER_TYPE_XBOX360                                = C.SDL_CONTROLLER_TYPE_XBOX360
-	CONTROLLER_TYPE_XBOXONE                                = C.SDL_CONTROLLER_TYPE_XBOXONE
-	CONTROLLER_TYPE_PS3                                    = C.SDL_CONTROLLER_TYPE_PS3
-	CONTROLLER_TYPE_PS4                                    = C.SDL_CONTROLLER_TYPE_PS4
-	CONTROLLER_TYPE_NINTENDO_SWITCH_PRO                    = C.SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO
-	CONTROLLER_TYPE_VIRTUAL                                = C.SDL_CONTROLLER_TYPE_VIRTUAL
-	CONTROLLER_TYPE_PS5                                    = C.SDL_CONTROLLER_TYPE_PS5
+	CONTROLLER_TYPE_XBOX360             GameControllerType = C.SDL_CONTROLLER_TYPE_XBOX360
+	CONTROLLER_TYPE_XBOXONE             GameControllerType = C.SDL_CONTROLLER_TYPE_XBOXONE
+	CONTROLLER_TYPE_PS3                 GameControllerType = C.SDL_CONTROLLER_TYPE_PS3
+	CONTROLLER_TYPE_PS4                 GameControllerType = C.SDL_CONTROLLER_TYPE_PS4
+	CONTROLLER_TYPE_NINTENDO_SWITCH_PRO GameControllerType = C.SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO
+	CONTROLLER_TYPE_VIRTUAL             GameControllerType = C.SDL_CONTROLLER_TYPE_VIRTUAL
+	CONTROLLER_TYPE_PS5                 GameControllerType = C.SDL_CONTROLLER_TYPE_PS5
 )
 
 // GameControllerBindType is a type of game controller input.

@@ -144,14 +144,16 @@ const (
 	DONTFREE  = C.SDL_DONTFREE  // surface is referenced internally
 )
 
+//go:generate stringer -type=YUV_CONVERSION_MODE
+
 type YUV_CONVERSION_MODE C.SDL_YUV_CONVERSION_MODE
 
 // YUV Conversion Modes
 const (
 	YUV_CONVERSION_JPEG      YUV_CONVERSION_MODE = C.SDL_YUV_CONVERSION_JPEG      // Full range JPEG
-	YUV_CONVERSION_BT601                         = C.SDL_YUV_CONVERSION_BT601     // BT.601 (the default)
-	YUV_CONVERSION_BT709                         = C.SDL_YUV_CONVERSION_BT709     // BT.709
-	YUV_CONVERSION_AUTOMATIC                     = C.SDL_YUV_CONVERSION_AUTOMATIC // BT.601 for SD content, BT.709 for HD content
+	YUV_CONVERSION_BT601     YUV_CONVERSION_MODE = C.SDL_YUV_CONVERSION_BT601     // BT.601 (the default)
+	YUV_CONVERSION_BT709     YUV_CONVERSION_MODE = C.SDL_YUV_CONVERSION_BT709     // BT.709
+	YUV_CONVERSION_AUTOMATIC YUV_CONVERSION_MODE = C.SDL_YUV_CONVERSION_AUTOMATIC // BT.601 for SD content, BT.709 for HD content
 )
 
 // Surface contains a collection of pixels used in software blitting.

@@ -193,6 +193,8 @@ const (
 	SENSOR_GYRO    SensorType = C.SDL_SENSOR_GYRO    // Gyroscope
 )
 
+//go:generate stringer -type=SensorType
+
 type Sensor C.SDL_Sensor
 type SensorID int32
 type SensorType int

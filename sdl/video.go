@@ -373,9 +373,11 @@ const (
 //
 const (
 	FLASH_CANCEL        FlashOperation = C.SDL_FLASH_CANCEL        // Cancel any window flash state
-	FLASH_BRIEFLY                      = C.SDL_FLASH_BRIEFLY       // Flash the window briefly to get attention
-	FLASH_UNTIL_FOCUSED                = C.SDL_FLASH_UNTIL_FOCUSED // Flash the window until it gets focus
+	FLASH_BRIEFLY       FlashOperation = C.SDL_FLASH_BRIEFLY       // Flash the window briefly to get attention
+	FLASH_UNTIL_FOCUSED FlashOperation = C.SDL_FLASH_UNTIL_FOCUSED // Flash the window until it gets focus
 )
+
+//go:generate stringer -type=FlashOperation
 
 type FlashOperation C.SDL_FlashOperation
 

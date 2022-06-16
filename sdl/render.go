@@ -277,13 +277,15 @@ const (
 	RENDERER_TARGETTEXTURE = C.SDL_RENDERER_TARGETTEXTURE // the renderer supports rendering to texture
 )
 
+//go:generate stringer -type=ScaleMode
+
 type ScaleMode uint32
 
 // The scaling mode for a texture.
 const (
 	ScaleModeNearest ScaleMode = C.SDL_ScaleModeNearest // nearest pixel sampling
-	ScaleModeLinear            = C.SDL_ScaleModeLinear  // linear filtering
-	ScaleModeBest              = C.SDL_ScaleModeBest    // anisotropic filtering
+	ScaleModeLinear  ScaleMode = C.SDL_ScaleModeLinear  // linear filtering
+	ScaleModeBest    ScaleMode = C.SDL_ScaleModeBest    // anisotropic filtering
 )
 
 func (sm ScaleMode) c() C.SDL_ScaleMode {
@@ -314,8 +316,8 @@ const (
 // (https://wiki.libsdl.org/SDL_RendererFlip)
 const (
 	FLIP_NONE       RendererFlip = C.SDL_FLIP_NONE       // do not flip
-	FLIP_HORIZONTAL              = C.SDL_FLIP_HORIZONTAL // flip horizontally
-	FLIP_VERTICAL                = C.SDL_FLIP_VERTICAL   // flip vertically
+	FLIP_HORIZONTAL RendererFlip = C.SDL_FLIP_HORIZONTAL // flip horizontally
+	FLIP_VERTICAL   RendererFlip = C.SDL_FLIP_VERTICAL   // flip vertically
 )
 
 // RendererInfo contains information on the capabilities of a render driver or the current render context.
