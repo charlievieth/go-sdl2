@@ -81,3 +81,7 @@ jobs:
       - name: Test if Go-SDL2 works with the SDL2 packages
         run: |
           go build ./{sdl,gfx,img,mix,ttf}
+
+      - name: Run Go-SDL2 unit tests
+        run: |
+          go test -v ./...
