@@ -1,5 +1,6 @@
 # Directories
 SRCDIR=		${CURDIR}
+BINDIR=     ${SRCDIR}/bin
 ALLDIRS!=	find ${SRCDIR} -type d -not -path "./.git*"
 # Packages
 ROOTPKG=	$(subst ${GOPATH}/src/,,${SRCDIR})
@@ -16,6 +17,7 @@ clean:
 	@for dir in ${ALLDIRS}; do \
 		cd $$dir && rm -f ${CLEANUP} && cd ${SRCDIR}; \
 	done
+	@rm -rf ${BINDIR}
 
 packages:
 	@for pkg in ${PACKAGES}; do \
@@ -39,4 +41,16 @@ bench:
 	@for pkg in ${PACKAGES}; do \
 		echo "Benchmarking ${ROOTPKG}/$$pkg..."; \
 		${GO} test -bench=. -cpu 1,2,3,4 ${ROOTPKG}/$$pkg; \
+	done
+
+bin/stringer:
+	@mkdir -p ${BINDIR}
+	@${GO} build -o ${BINDIR}/stringer golang.org/x/tools/cmd/stringer
+
+.PHONY: generate
+generate: bin/stringer
+	@for pkg in ${PACKAGES}; do \
+		echo "Generating ${ROOTPKG}/$$pkg..."; \
+		export PATH=${BINDIR}:$$PATH; \
+		${GO} generate ${ROOTPKG}/$$pkg; \
 	done

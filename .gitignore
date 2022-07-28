@@ -1,3 +1,4 @@
 *.swp
 *~
 go-sdl2
+/bin
